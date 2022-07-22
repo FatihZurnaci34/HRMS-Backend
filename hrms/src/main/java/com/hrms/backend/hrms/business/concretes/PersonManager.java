@@ -15,7 +15,7 @@ import com.hrms.backend.hrms.entities.concretes.Person;
 
 @Service
 public class PersonManager implements PersonService{
-
+	
 	private PersonDao personDao;
 	
 	@Autowired

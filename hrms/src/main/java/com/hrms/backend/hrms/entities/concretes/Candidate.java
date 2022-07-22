@@ -7,14 +7,16 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@EqualsAndHashCode(callSuper=false)
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="candidates")
-public class Candidate {
+public class Candidate extends User{
 	@Id
 	@Column(name="user_id")
 	private int id;

@@ -37,10 +37,5 @@ public class JobPositionController {
 	public Result add(@RequestBody JobPosition jobPosition) {
 		return this.jobPositionService.add(jobPosition);
 	}
-	
-
-	
-	
-	
 
 }

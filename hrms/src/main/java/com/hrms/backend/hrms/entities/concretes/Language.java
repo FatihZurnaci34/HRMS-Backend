@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -19,32 +21,26 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Data
-@AllArgsConstructor
+@Entity
 @NoArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler","employers","cities","job","job_advertisments","jobAdvertisments"})
-@Table(name="job_positions")
-public class JobPosition {
+@AllArgsConstructor
+@Table(name="languages")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class Language {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="name")
-	private String jobPosition;
+	@NotBlank
+	@NotNull
+	@Column(name="language_name")
+	private String langeageName;
 	
-	@JsonIgnore
-	@OneToMany(mappedBy = "jobPosition")
-	private List<JobAdvert> jobAdverts; 
-	
-	@JsonIgnore
-    @OneToMany(mappedBy = "jobPosition", orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<JobSeekerExperience> jobSeekerExperiences;
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "jobPosition",orphanRemoval = true,cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<JobSeekerPosition> jobSeekerPositions;
+	@JsonIgnore(value = true)
+	@OneToMany(mappedBy = "language", orphanRemoval = true, cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	private List<JobSeekerLanguage> jobSeekerLanguages;
 
 }

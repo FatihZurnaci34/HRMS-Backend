@@ -32,6 +32,13 @@ public class JobSeeker extends User{
 	@Column(name="birth_year")
 	private String birthYear;
 	
-	
+    @Column(name = "linkedin_link")
+    private String linkedinLink;
+
+    @Column(name = "github_link")
+    private String githubLink;
+
+    @Column(name = "cover_letter")
+    private String coverLetter;
 
 }

@@ -37,7 +37,7 @@ public class Language {
 	@NotBlank
 	@NotNull
 	@Column(name="language_name")
-	private String langeageName;
+	private String languageName;
 	
 	@JsonIgnore(value = true)
 	@OneToMany(mappedBy = "language", orphanRemoval = true, cascade = CascadeType.ALL,fetch = FetchType.LAZY)

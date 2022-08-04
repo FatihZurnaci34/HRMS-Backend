@@ -39,5 +39,9 @@ public class JobSeekerLanguage {
     @Max(5)
     @Column(name = "level")
     private int level;
+	
+	@NotNull
+    @Column(name = "user_id")
+    private int userId;
 
 }
